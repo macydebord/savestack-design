@@ -209,7 +209,7 @@ Developer:
 
 ## 8. GitHub Project Board and Milestones
 
-GitHub Project Board: 
+GitHub Project Board: https://github.com/users/macydebord/projects/1
 
 Milestones:
 

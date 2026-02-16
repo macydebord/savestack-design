@@ -108,7 +108,7 @@ So that invalid coupons cannot be saved or redeemed
 
 ## 4. Class Diagram (UML)
 
-![Coupon UML]([uml/enterpriseAppDevUMLCoupon.png](https://github.com/macydebord/savestack-design/blob/main/docs/uml/enterpriseAppDevUMLCoupon.png))
+![Coupon UML](https://github.com/macydebord/savestack-design/blob/main/docs/uml/enterpriseAppDevUMLCoupon.png)
 
 ---
 

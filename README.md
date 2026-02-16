@@ -108,7 +108,7 @@ So that invalid coupons cannot be saved or redeemed
 
 ## 4. Class Diagram (UML)
 
-The UML class diagram is located in the `docs/uml/` folder.
+[Coupon UML](uml/enterpriseAppDevUMLCoupon.png)
 
 ---
 

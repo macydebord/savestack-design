@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" th:href="@{/css/style.css}"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" rel="jscript" />
+</head>
+<header>
+    <nav class="navbar navbar-expand-lg bg-body-primary">
+        <div class="container-fluid">
+            <a class="navbar-brand" th:href="@{/}"><h4>SaveStack</h4></a>
+            <ul class="navbar-nav">
+                <li><a th:href="@{/allCoupons}">All Coupons</a></li>
+            </ul>
+            <ul class="navbar-nav navbar-right">
+                <li><div><a th:href="@{/signup}"><i class="bi bi-person-fill"></i> Sign Up</a></div></li>
+                <li><div><a th:href="@{/login}"><i class="bi bi-box-arrow-in-right"></i> Login</a></div></li>
+            </ul>
+        </div>
+    </nav>
+</header>
+<body>
+    <main>
+        <h1>Hot Coupons</h1>
+        <div class="couponList">
+            <div class="card coupon" style="width: 18rem;">
+                <a href="#">
+                    <img th:src="@{/image/question-circle-fill.svg}" class="card-img-top" alt="Coupon Image">
+                    <div class="card-body">
+                        <h5 class="card-title">Coupon Name</h5>
+                        <p class="card-text">Coupon desc</p>
+                    </div>
+                </a>
+            </div>
+            <div class="card coupon" style="width: 18rem;">
+                <a href="#">
+                    <img th:src="@{/image/question-circle-fill.svg}" class="card-img-top" alt="Coupon Image">
+                    <div class="card-body">
+                        <h5 class="card-title">Coupon Name</h5>
+                        <p class="card-text">Coupon desc</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <h1>Grocery Coupons</h1>
+        <div class="couponList">
+            <div class="card coupon" style="width: 18rem;">
+                <a href="#">
+                    <img th:src="@{/image/question-circle-fill.svg}" class="card-img-top" alt="Coupon Image">
+                    <div class="card-body">
+                        <h5 class="card-title">Coupon Name</h5>
+                        <p class="card-text">Coupon desc</p>
+                    </div>
+                </a>
+            </div>
+            <div class="card coupon" style="width: 18rem;">
+                <a href="#">
+                    <img th:src="@{/image/question-circle-fill.svg}" class="card-img-top" alt="Coupon Image">
+                    <div class="card-body">
+                        <h5 class="card-title">Coupon Name</h5>
+                        <p class="card-text">Coupon desc</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+    </main>
+</body>
+</html>

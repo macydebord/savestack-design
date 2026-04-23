@@ -1,25 +1,32 @@
 package com.EnterpriseApp.savestack.controllers;
 
+import com.EnterpriseApp.savestack.service.CouponService;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class HomeController {
 
-    @RequestMapping("/")
-    public String home(){
+    private final CouponService couponService;
+
+    public HomeController(CouponService couponService) {
+        this.couponService = couponService;
+    }
+
+    @GetMapping("/")
+    public String home(Model model) {
+        model.addAttribute("coupons", couponService.getActiveCoupons());
         return "index";
     }
-    @RequestMapping("/allCoupons")
-    public String allCoupons(){
-        return "allCoupons";
-    }
-    @RequestMapping("/login")
-    public String login(){
+
+    @GetMapping("/login")
+    public String login() {
         return "login";
     }
-    @RequestMapping("/signup")
-    public String signup(){
+
+    @GetMapping("/signup")
+    public String signup() {
         return "signup";
     }
 }

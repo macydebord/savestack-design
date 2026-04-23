@@ -200,10 +200,9 @@ Returns coupon data in JSON format.
 
 ## 7. Scrum Roles
 
-Product Owner:  
-Scrum Master: 
-DevOps Lead: 
-Developer: 
+Product Owner: Macy Debord 
+DevOps Lead: Anthony Arcuri
+Developer: Evangeline Miller
 
 ---
 

@@ -1,10 +1,38 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Login - SaveStack</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
 </head>
 <body>
+
+    <nav class="navbar">
+        <div class="nav-left">
+            <a th:href="@{/}" class="brand">SaveStack</a>
+        </div>
+        <div class="nav-right">
+            <a th:href="@{/allCoupons}">All Coupons</a>
+            <a th:href="@{/login}">Login</a>
+            <a th:href="@{/signup}">Sign Up</a>
+        </div>
+    </nav>
+
+    <section class="form-section">
+        <div class="form-card">
+            <h1>Login</h1>
+            <form>
+                <label>Email</label>
+                <input type="email" placeholder="Enter your email">
+
+                <label>Password</label>
+                <input type="password" placeholder="Enter your password">
+
+                <button type="submit" class="btn primary-btn">Login</button>
+            </form>
+            <p class="small-text">Placeholder login page for project demo.</p>
+        </div>
+    </section>
 
 </body>
 </html>

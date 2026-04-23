@@ -1,10 +1,62 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Coupon Details - SaveStack</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
 </head>
 <body>
+
+    <nav class="navbar">
+        <div class="nav-left">
+            <a th:href="@{/}" class="brand">SaveStack</a>
+        </div>
+        <div class="nav-right">
+            <a th:href="@{/allCoupons}">All Coupons</a>
+            <a th:href="@{/login}">Login</a>
+            <a th:href="@{/signup}">Sign Up</a>
+        </div>
+    </nav>
+
+    <section class="detail-section" th:if="${coupon != null}">
+        <div class="detail-card">
+            <h1 th:text="${coupon.title}">Coupon Title</h1>
+
+            <span class="status-badge"
+                  th:classappend="${coupon.status.name() == 'ACTIVE'} ? ' status-active' :
+                              (${coupon.status.name() == 'EXPIRED'} ? ' status-expired' : ' status-used')"
+                  th:text="${coupon.status}">
+                ACTIVE
+            </span>
+
+            <p><strong>Code:</strong> <span th:text="${coupon.code}">CODE123</span></p>
+            <p><strong>Description:</strong> <span th:text="${coupon.description}">Description</span></p>
+            <p><strong>Discount:</strong> <span th:text="${coupon.discountPercent}">10</span>%</p>
+            <p><strong>Expiration Date:</strong> <span th:text="${coupon.expirationDate}">2026-04-30</span></p>
+            <p><strong>Usage Count:</strong> <span th:text="${coupon.usageCount}">0</span></p>
+            <p><strong>Usage Limit:</strong> <span th:text="${coupon.usageLimit}">5</span></p>
+
+            <div class="coupon-actions">
+                <form th:action="@{'/coupon/' + ${coupon.id} + '/save'}" method="post">
+                    <button type="submit" class="btn primary-btn">Save Coupon</button>
+                </form>
+
+                <form th:action="@{'/coupon/' + ${coupon.id} + '/redeem'}" method="post">
+                    <button type="submit" class="btn dark-btn">Redeem Coupon</button>
+                </form>
+
+                <a th:href="@{/allCoupons}" class="btn secondary-btn">Back to All Coupons</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="detail-section" th:if="${coupon == null}">
+        <div class="detail-card">
+            <h1>Coupon Not Found</h1>
+            <p>The coupon you selected does not exist.</p>
+            <a th:href="@{/allCoupons}" class="btn secondary-btn">Back to All Coupons</a>
+        </div>
+    </section>
 
 </body>
 </html>

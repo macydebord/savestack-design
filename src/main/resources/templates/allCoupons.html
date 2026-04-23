@@ -1,10 +1,69 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>All Coupons - SaveStack</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
 </head>
 <body>
+
+    <nav class="navbar">
+        <div class="nav-left">
+            <a th:href="@{/}" class="brand">SaveStack</a>
+        </div>
+        <div class="nav-right">
+            <a th:href="@{/allCoupons}">All Coupons</a>
+            <a th:href="@{/login}">Login</a>
+            <a th:href="@{/signup}">Sign Up</a>
+        </div>
+    </nav>
+
+    <section class="page-header">
+        <h1>All Coupons</h1>
+        <p>Browse all current coupons and view their status.</p>
+    </section>
+
+    <section class="coupon-grid-section">
+        <div class="coupon-grid">
+            <div class="coupon-card" th:each="coupon : ${coupons}">
+                <div class="coupon-top">
+                    <h2 th:text="${coupon.title}">Coupon Title</h2>
+                    <span class="status-badge"
+                          th:classappend="${coupon.status.name() == 'ACTIVE'} ? ' status-active' :
+                                      (${coupon.status.name() == 'EXPIRED'} ? ' status-expired' : ' status-used')"
+                          th:text="${coupon.status}">
+                        ACTIVE
+                    </span>
+                </div>
+
+                <p class="coupon-code">
+                    Code: <strong th:text="${coupon.code}">CODE123</strong>
+                </p>
+
+                <p class="coupon-description" th:text="${coupon.description}">
+                    Coupon description goes here.
+                </p>
+
+                <div class="coupon-meta">
+                    <p>Discount: <span th:text="${coupon.discountPercent}">10</span>%</p>
+                    <p>Expires: <span th:text="${coupon.expirationDate}">2026-04-30</span></p>
+                    <p>Used: <span th:text="${coupon.usageCount}">0</span> / <span th:text="${coupon.usageLimit}">5</span></p>
+                </div>
+
+                <div class="coupon-actions">
+                    <a class="btn secondary-btn" th:href="@{'/coupon/' + ${coupon.id}}">View Details</a>
+
+                    <form th:action="@{'/coupon/' + ${coupon.id} + '/save'}" method="post">
+                        <button type="submit" class="btn primary-btn">Save</button>
+                    </form>
+
+                    <form th:action="@{'/coupon/' + ${coupon.id} + '/redeem'}" method="post">
+                        <button type="submit" class="btn dark-btn">Redeem</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
 
 </body>
 </html>

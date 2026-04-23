@@ -189,3 +189,18 @@ body {
     color: #6b7280;
     font-size: 0.9rem;
 }
+
+.flash-message-section {
+    padding: 0 40px 20px 40px;
+}
+
+.flash-message {
+    max-width: 700px;
+    margin: 0 auto;
+    background: #dbeafe;
+    color: #1e3a8a;
+    border: 1px solid #93c5fd;
+    padding: 14px 18px;
+    border-radius: 12px;
+    font-weight: 600;
+}

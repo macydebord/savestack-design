@@ -3,14 +3,16 @@
     "",
     "\\src",
     "\\src\\main",
+    "\\src\\main\\java",
     "\\src\\main\\java\\com",
     "\\src\\main\\java\\com\\EnterpriseApp",
     "\\src\\main\\java\\com\\EnterpriseApp\\savestack",
-    "\\src\\main\\java\\com\\EnterpriseApp\\savestack\\controllers",
+    "\\src\\main\\java\\com\\EnterpriseApp\\savestack\\service",
     "\\src\\main\\resources",
     "\\src\\main\\resources\\static",
     "\\src\\main\\resources\\static\\css",
     "\\src\\main\\resources\\templates"
   ],
+  "SelectedNode": "\\src\\main\\resources\\templates\\savedCoupons.html",
   "PreviewInSolutionExplorer": false
 }

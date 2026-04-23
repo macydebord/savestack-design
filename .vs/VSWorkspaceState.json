@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\src",
+    "\\src\\main",
+    "\\src\\main\\java\\com",
+    "\\src\\main\\java\\com\\EnterpriseApp",
+    "\\src\\main\\java\\com\\EnterpriseApp\\savestack",
+    "\\src\\main\\java\\com\\EnterpriseApp\\savestack\\controllers",
+    "\\src\\main\\resources",
+    "\\src\\main\\resources\\static",
+    "\\src\\main\\resources\\static\\css",
+    "\\src\\main\\resources\\templates"
+  ],
+  "PreviewInSolutionExplorer": false
+}

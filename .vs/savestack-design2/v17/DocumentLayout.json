@@ -1,0 +1,279 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\gdebo\\source\\repos\\savestack-design2\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\gdebo\\source\\repos\\savestack-design2\\src\\main\\resources\\templates\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\main\\resources\\templates\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\gdebo\\Source\\Repos\\savestack-design2\\src\\main\\resources\\static\\css\\styles.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\main\\resources\\static\\css\\styles.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\gdebo\\source\\repos\\savestack-design2\\src\\main\\java\\com\\EnterpriseApp\\savestack\\controllers\\HomeController.java||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\main\\java\\com\\EnterpriseApp\\savestack\\controllers\\HomeController.java||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\gdebo\\source\\repos\\savestack-design2\\src\\main\\resources\\templates\\signup.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\main\\resources\\templates\\signup.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\gdebo\\source\\repos\\savestack-design2\\src\\main\\resources\\templates\\login.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\main\\resources\\templates\\login.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\gdebo\\source\\repos\\savestack-design2\\src\\main\\resources\\templates\\coupon.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\main\\resources\\templates\\coupon.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\gdebo\\source\\repos\\savestack-design2\\src\\main\\resources\\templates\\allCoupons.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\main\\resources\\templates\\allCoupons.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\gdebo\\source\\repos\\savestack-design2\\src\\main\\java\\com\\EnterpriseApp\\savestack\\controllers\\ApiCouponController.java||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\main\\java\\com\\EnterpriseApp\\savestack\\controllers\\ApiCouponController.java||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\gdebo\\source\\repos\\savestack-design2\\src\\main\\java\\com\\EnterpriseApp\\savestack\\controllers\\CouponController.java||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\main\\java\\com\\EnterpriseApp\\savestack\\controllers\\CouponController.java||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\gdebo\\source\\repos\\savestack-design2\\src\\main\\java\\com\\EnterpriseApp\\savestack\\service\\InMemoryCouponService.java||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\main\\java\\com\\EnterpriseApp\\savestack\\service\\InMemoryCouponService.java||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\gdebo\\source\\repos\\savestack-design2\\src\\main\\java\\com\\EnterpriseApp\\savestack\\entities\\Redemption.java||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\main\\java\\com\\EnterpriseApp\\savestack\\entities\\Redemption.java||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\gdebo\\source\\repos\\savestack-design2\\src\\main\\java\\com\\EnterpriseApp\\savestack\\service\\CouponService.java||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\main\\java\\com\\EnterpriseApp\\savestack\\service\\CouponService.java||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\gdebo\\source\\repos\\savestack-design2\\src\\main\\java\\com\\EnterpriseApp\\savestack\\entities\\SavedCoupon.java||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\main\\java\\com\\EnterpriseApp\\savestack\\entities\\SavedCoupon.java||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\gdebo\\source\\repos\\savestack-design2\\src\\main\\java\\com\\EnterpriseApp\\savestack\\entities\\User.java||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\main\\java\\com\\EnterpriseApp\\savestack\\entities\\User.java||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\gdebo\\source\\repos\\savestack-design2\\src\\main\\java\\com\\EnterpriseApp\\savestack\\entities\\Coupon.java||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\main\\java\\com\\EnterpriseApp\\savestack\\entities\\Coupon.java||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\gdebo\\source\\repos\\savestack-design2\\src\\main\\java\\com\\EnterpriseApp\\savestack\\entities\\CouponStatus.java||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\main\\java\\com\\EnterpriseApp\\savestack\\entities\\CouponStatus.java||{8B382828-6202-11D1-8870-0000F87579D2}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "login.html",
+              "DocumentMoniker": "C:\\Users\\gdebo\\source\\repos\\savestack-design2\\src\\main\\resources\\templates\\login.html",
+              "RelativeDocumentMoniker": "src\\main\\resources\\templates\\login.html",
+              "ToolTip": "C:\\Users\\gdebo\\source\\repos\\savestack-design2\\src\\main\\resources\\templates\\login.html",
+              "RelativeToolTip": "src\\main\\resources\\templates\\login.html",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACUAAAAHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2026-04-23T18:39:55.62Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "HomeController.java",
+              "DocumentMoniker": "C:\\Users\\gdebo\\source\\repos\\savestack-design2\\src\\main\\java\\com\\EnterpriseApp\\savestack\\controllers\\HomeController.java",
+              "RelativeDocumentMoniker": "src\\main\\java\\com\\EnterpriseApp\\savestack\\controllers\\HomeController.java",
+              "ToolTip": "C:\\Users\\gdebo\\source\\repos\\savestack-design2\\src\\main\\java\\com\\EnterpriseApp\\savestack\\controllers\\HomeController.java",
+              "RelativeToolTip": "src\\main\\java\\com\\EnterpriseApp\\savestack\\controllers\\HomeController.java",
+              "ViewState": "AgIAABMAAAAAAAAAAADwvxgAAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001630|",
+              "WhenOpened": "2026-04-23T18:36:52.086Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "index.html",
+              "DocumentMoniker": "C:\\Users\\gdebo\\source\\repos\\savestack-design2\\src\\main\\resources\\templates\\index.html",
+              "RelativeDocumentMoniker": "src\\main\\resources\\templates\\index.html",
+              "ToolTip": "C:\\Users\\gdebo\\source\\repos\\savestack-design2\\src\\main\\resources\\templates\\index.html",
+              "RelativeToolTip": "src\\main\\resources\\templates\\index.html",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2026-04-23T18:38:18.558Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "styles.css",
+              "DocumentMoniker": "C:\\Users\\gdebo\\Source\\Repos\\savestack-design2\\src\\main\\resources\\static\\css\\styles.css",
+              "RelativeDocumentMoniker": "src\\main\\resources\\static\\css\\styles.css",
+              "ToolTip": "C:\\Users\\gdebo\\Source\\Repos\\savestack-design2\\src\\main\\resources\\static\\css\\styles.css",
+              "RelativeToolTip": "src\\main\\resources\\static\\css\\styles.css",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAL8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2026-04-23T18:40:33.631Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "signup.html",
+              "DocumentMoniker": "C:\\Users\\gdebo\\source\\repos\\savestack-design2\\src\\main\\resources\\templates\\signup.html",
+              "RelativeDocumentMoniker": "src\\main\\resources\\templates\\signup.html",
+              "ToolTip": "C:\\Users\\gdebo\\source\\repos\\savestack-design2\\src\\main\\resources\\templates\\signup.html",
+              "RelativeToolTip": "src\\main\\resources\\templates\\signup.html",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAACgAAAAHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2026-04-23T18:40:09.247Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "coupon.html",
+              "DocumentMoniker": "C:\\Users\\gdebo\\source\\repos\\savestack-design2\\src\\main\\resources\\templates\\coupon.html",
+              "RelativeDocumentMoniker": "src\\main\\resources\\templates\\coupon.html",
+              "ToolTip": "C:\\Users\\gdebo\\source\\repos\\savestack-design2\\src\\main\\resources\\templates\\coupon.html",
+              "RelativeToolTip": "src\\main\\resources\\templates\\coupon.html",
+              "ViewState": "AgIAABgAAAAAAAAAAAAowD0AAAAHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2026-04-23T18:39:13.489Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "allCoupons.html",
+              "DocumentMoniker": "C:\\Users\\gdebo\\source\\repos\\savestack-design2\\src\\main\\resources\\templates\\allCoupons.html",
+              "RelativeDocumentMoniker": "src\\main\\resources\\templates\\allCoupons.html",
+              "ToolTip": "C:\\Users\\gdebo\\source\\repos\\savestack-design2\\src\\main\\resources\\templates\\allCoupons.html",
+              "RelativeToolTip": "src\\main\\resources\\templates\\allCoupons.html",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEQAAAAHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2026-04-23T18:39:00.592Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ApiCouponController.java",
+              "DocumentMoniker": "C:\\Users\\gdebo\\source\\repos\\savestack-design2\\src\\main\\java\\com\\EnterpriseApp\\savestack\\controllers\\ApiCouponController.java",
+              "RelativeDocumentMoniker": "src\\main\\java\\com\\EnterpriseApp\\savestack\\controllers\\ApiCouponController.java",
+              "ToolTip": "C:\\Users\\gdebo\\source\\repos\\savestack-design2\\src\\main\\java\\com\\EnterpriseApp\\savestack\\controllers\\ApiCouponController.java",
+              "RelativeToolTip": "src\\main\\java\\com\\EnterpriseApp\\savestack\\controllers\\ApiCouponController.java",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001630|",
+              "WhenOpened": "2026-04-23T18:37:39.275Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "CouponController.java",
+              "DocumentMoniker": "C:\\Users\\gdebo\\source\\repos\\savestack-design2\\src\\main\\java\\com\\EnterpriseApp\\savestack\\controllers\\CouponController.java",
+              "RelativeDocumentMoniker": "src\\main\\java\\com\\EnterpriseApp\\savestack\\controllers\\CouponController.java",
+              "ToolTip": "C:\\Users\\gdebo\\source\\repos\\savestack-design2\\src\\main\\java\\com\\EnterpriseApp\\savestack\\controllers\\CouponController.java",
+              "RelativeToolTip": "src\\main\\java\\com\\EnterpriseApp\\savestack\\controllers\\CouponController.java",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACcAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001630|",
+              "WhenOpened": "2026-04-23T18:37:17.365Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "InMemoryCouponService.java",
+              "DocumentMoniker": "C:\\Users\\gdebo\\source\\repos\\savestack-design2\\src\\main\\java\\com\\EnterpriseApp\\savestack\\service\\InMemoryCouponService.java",
+              "RelativeDocumentMoniker": "src\\main\\java\\com\\EnterpriseApp\\savestack\\service\\InMemoryCouponService.java",
+              "ToolTip": "C:\\Users\\gdebo\\source\\repos\\savestack-design2\\src\\main\\java\\com\\EnterpriseApp\\savestack\\service\\InMemoryCouponService.java",
+              "RelativeToolTip": "src\\main\\java\\com\\EnterpriseApp\\savestack\\service\\InMemoryCouponService.java",
+              "ViewState": "AgIAADAAAAAAAAAAAADwv1MAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001630|",
+              "WhenOpened": "2026-04-23T18:36:22.516Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "CouponService.java",
+              "DocumentMoniker": "C:\\Users\\gdebo\\source\\repos\\savestack-design2\\src\\main\\java\\com\\EnterpriseApp\\savestack\\service\\CouponService.java",
+              "RelativeDocumentMoniker": "src\\main\\java\\com\\EnterpriseApp\\savestack\\service\\CouponService.java",
+              "ToolTip": "C:\\Users\\gdebo\\source\\repos\\savestack-design2\\src\\main\\java\\com\\EnterpriseApp\\savestack\\service\\CouponService.java",
+              "RelativeToolTip": "src\\main\\java\\com\\EnterpriseApp\\savestack\\service\\CouponService.java",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001630|",
+              "WhenOpened": "2026-04-23T18:35:24.275Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Redemption.java",
+              "DocumentMoniker": "C:\\Users\\gdebo\\source\\repos\\savestack-design2\\src\\main\\java\\com\\EnterpriseApp\\savestack\\entities\\Redemption.java",
+              "RelativeDocumentMoniker": "src\\main\\java\\com\\EnterpriseApp\\savestack\\entities\\Redemption.java",
+              "ToolTip": "C:\\Users\\gdebo\\source\\repos\\savestack-design2\\src\\main\\java\\com\\EnterpriseApp\\savestack\\entities\\Redemption.java",
+              "RelativeToolTip": "src\\main\\java\\com\\EnterpriseApp\\savestack\\entities\\Redemption.java",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001630|",
+              "WhenOpened": "2026-04-23T18:34:47.647Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "SavedCoupon.java",
+              "DocumentMoniker": "C:\\Users\\gdebo\\source\\repos\\savestack-design2\\src\\main\\java\\com\\EnterpriseApp\\savestack\\entities\\SavedCoupon.java",
+              "RelativeDocumentMoniker": "src\\main\\java\\com\\EnterpriseApp\\savestack\\entities\\SavedCoupon.java",
+              "ToolTip": "C:\\Users\\gdebo\\source\\repos\\savestack-design2\\src\\main\\java\\com\\EnterpriseApp\\savestack\\entities\\SavedCoupon.java",
+              "RelativeToolTip": "src\\main\\java\\com\\EnterpriseApp\\savestack\\entities\\SavedCoupon.java",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001630|",
+              "WhenOpened": "2026-04-23T18:34:27.141Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "User.java",
+              "DocumentMoniker": "C:\\Users\\gdebo\\source\\repos\\savestack-design2\\src\\main\\java\\com\\EnterpriseApp\\savestack\\entities\\User.java",
+              "RelativeDocumentMoniker": "src\\main\\java\\com\\EnterpriseApp\\savestack\\entities\\User.java",
+              "ToolTip": "C:\\Users\\gdebo\\source\\repos\\savestack-design2\\src\\main\\java\\com\\EnterpriseApp\\savestack\\entities\\User.java",
+              "RelativeToolTip": "src\\main\\java\\com\\EnterpriseApp\\savestack\\entities\\User.java",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001630|",
+              "WhenOpened": "2026-04-23T18:34:05.925Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "Coupon.java",
+              "DocumentMoniker": "C:\\Users\\gdebo\\source\\repos\\savestack-design2\\src\\main\\java\\com\\EnterpriseApp\\savestack\\entities\\Coupon.java",
+              "RelativeDocumentMoniker": "src\\main\\java\\com\\EnterpriseApp\\savestack\\entities\\Coupon.java",
+              "ToolTip": "C:\\Users\\gdebo\\source\\repos\\savestack-design2\\src\\main\\java\\com\\EnterpriseApp\\savestack\\entities\\Coupon.java",
+              "RelativeToolTip": "src\\main\\java\\com\\EnterpriseApp\\savestack\\entities\\Coupon.java",
+              "ViewState": "AgIAAAkAAAAAAAAAAADwvywAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001630|",
+              "WhenOpened": "2026-04-23T18:33:48.61Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "CouponStatus.java",
+              "DocumentMoniker": "C:\\Users\\gdebo\\source\\repos\\savestack-design2\\src\\main\\java\\com\\EnterpriseApp\\savestack\\entities\\CouponStatus.java",
+              "RelativeDocumentMoniker": "src\\main\\java\\com\\EnterpriseApp\\savestack\\entities\\CouponStatus.java",
+              "ToolTip": "C:\\Users\\gdebo\\source\\repos\\savestack-design2\\src\\main\\java\\com\\EnterpriseApp\\savestack\\entities\\CouponStatus.java",
+              "RelativeToolTip": "src\\main\\java\\com\\EnterpriseApp\\savestack\\entities\\CouponStatus.java",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001630|",
+              "WhenOpened": "2026-04-23T18:33:29.281Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

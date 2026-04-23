@@ -2,8 +2,8 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>All Coupons - SaveStack</title>
-    <link rel="stylesheet" th:href="@{/css/styles.css}">
+    <title>Redeemed Coupons - SaveStack</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
 <body>
 
@@ -22,33 +22,26 @@
     </nav>
 
     <section class="page-header">
-        <h1>All Coupons</h1>
-        <p>Browse all current coupons and search by title, code, or description.</p>
+        <h1>Redeemed Coupons</h1>
+        <p>View coupons you have already redeemed.</p>
     </section>
 
-    <section class="form-section">
-        <div class="form-card">
-            <form th:action="@{/allCoupons}" method="get">
-                <label for="keyword">Search Coupons</label>
-                <input type="text" id="keyword" name="keyword" th:value="${keyword}" placeholder="Search by title, code, or description">
-                <button type="submit" class="btn primary-btn">Search</button>
-            </form>
+    <section class="coupon-grid-section" th:if="${#lists.isEmpty(coupons)}">
+        <div class="detail-card">
+            <h2>No Redeemed Coupons Yet</h2>
+            <p>You have not redeemed any coupons yet.</p>
+            <a th:href="@{/allCoupons}" class="btn primary-btn">Browse Coupons</a>
         </div>
     </section>
 
-    <section class="flash-message-section" th:if="${message}">
-        <div class="flash-message">
-            <p th:text="${message}"></p>
-        </div>
-    </section>
-
-    <section class="coupon-grid-section">
+    <section class="coupon-grid-section" th:if="${!#lists.isEmpty(coupons)}">
         <div class="coupon-grid">
             <div class="coupon-card" th:each="coupon : ${coupons}">
                 <div class="coupon-top">
                     <h2 th:text="${coupon.title}">Coupon Title</h2>
                     <span class="status-badge"
-                          th:classappend="${coupon.status.name() == 'ACTIVE'} ? ' status-active' : (${coupon.status.name() == 'EXPIRED'} ? ' status-expired' : ' status-used')"
+                          th:classappend="${coupon.status.name() == 'ACTIVE'} ? ' status-active' :
+                                      (${coupon.status.name() == 'EXPIRED'} ? ' status-expired' : ' status-used')"
                           th:text="${coupon.status}">
                         ACTIVE
                     </span>
@@ -68,14 +61,6 @@
 
                 <div class="coupon-actions">
                     <a class="btn secondary-btn" th:href="@{'/coupon/' + ${coupon.id}}">View Details</a>
-
-                    <form th:action="@{'/coupon/' + ${coupon.id} + '/save'}" method="post">
-                        <button type="submit" class="btn primary-btn">Save</button>
-                    </form>
-
-                    <form th:action="@{'/coupon/' + ${coupon.id} + '/redeem'}" method="post">
-                        <button type="submit" class="btn dark-btn">Redeem</button>
-                    </form>
                 </div>
             </div>
         </div>

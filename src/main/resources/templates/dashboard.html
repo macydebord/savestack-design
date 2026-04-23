@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard - SaveStack</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="nav-left">
+            <a th:href="@{/}" class="brand">SaveStack</a>
+        </div>
+        <div class="nav-right">
+            <a th:href="@{/dashboard}">Dashboard</a>
+            <a th:href="@{/allCoupons}">All Coupons</a>
+            <a th:href="@{/savedCoupons}">Saved Coupons</a>
+            <a th:href="@{/redeemedCoupons}">Redeemed</a>
+            <a th:href="@{/login}">Login</a>
+            <a th:href="@{/signup}">Sign Up</a>
+        </div>
+    </nav>
+
+    <section class="page-header">
+        <h1>Coupon Dashboard</h1>
+        <p>Track available, saved, and redeemed coupons in one place.</p>
+    </section>
+
+    <section class="flash-message-section" th:if="${message}">
+        <div class="flash-message">
+            <p th:text="${message}"></p>
+        </div>
+    </section>
+
+    <section class="coupon-grid-section">
+        <div class="info-grid">
+            <div class="info-card">
+                <h2 th:text="${availableCount}">0</h2>
+                <p>Active Coupons</p>
+            </div>
+            <div class="info-card">
+                <h2 th:text="${savedCount}">0</h2>
+                <p>Saved Coupons</p>
+            </div>
+            <div class="info-card">
+                <h2 th:text="${redeemedCount}">0</h2>
+                <p>Redeemed Coupons</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="form-section">
+        <div class="form-card">
+            <form th:action="@{/resetDemo}" method="post">
+                <button type="submit" class="btn dark-btn">Reset Demo Data</button>
+            </form>
+        </div>
+    </section>
+
+    <section class="home-section">
+        <h2>Saved Coupons</h2>
+        <div class="coupon-grid" th:if="${!#lists.isEmpty(savedCoupons)}">
+            <div class="coupon-card" th:each="coupon : ${savedCoupons}">
+                <h3 th:text="${coupon.title}">Coupon</h3>
+                <p th:text="${coupon.description}">Description</p>
+                <a class="btn secondary-btn" th:href="@{'/coupon/' + ${coupon.id}}">View Details</a>
+            </div>
+        </div>
+        <div class="detail-card" th:if="${#lists.isEmpty(savedCoupons)}">
+            <p>No saved coupons yet.</p>
+        </div>
+    </section>
+
+    <section class="home-section alt-section">
+        <h2>Redeemed Coupons</h2>
+        <div class="coupon-grid" th:if="${!#lists.isEmpty(redeemedCoupons)}">
+            <div class="coupon-card" th:each="coupon : ${redeemedCoupons}">
+                <h3 th:text="${coupon.title}">Coupon</h3>
+                <p th:text="${coupon.description}">Description</p>
+                <a class="btn secondary-btn" th:href="@{'/coupon/' + ${coupon.id}}">View Details</a>
+            </div>
+        </div>
+        <div class="detail-card" th:if="${#lists.isEmpty(redeemedCoupons)}">
+            <p>No redeemed coupons yet.</p>
+        </div>
+    </section>
+
+</body>
+</html>

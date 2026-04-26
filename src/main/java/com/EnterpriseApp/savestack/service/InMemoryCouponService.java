@@ -140,24 +140,39 @@ public class InMemoryCouponService implements CouponService {
      * The coupon must be active before it can be redeemed.
      *
      * @param userId ID of the user redeeming the coupon
-     * @param couponId ID of the coupon being redeemed
+     * @param couponId ID of the couposuccessfullyn being redeemed
      * @return true if redeemed successfully, false otherwise
      */
     @Override
-    public boolean redeemCoupon(Long userId, Long couponId) {
-        updateStatuses();
+public boolean redeemCoupon(Long userId, Long couponId) {
+    updateStatuses();
 
-        Coupon coupon = getCouponById(couponId);
+    Coupon coupon = getCouponById(couponId);
 
-        if (coupon == null || coupon.getStatus() != CouponStatus.ACTIVE) {
-            return false;
-        }
-
-        coupon.setUsageCount(coupon.getUsageCount() + 1);
-        redemptions.add(new Redemption(userId, couponId, LocalDate.now()));
-        updateStatuses();
-        return true;
+    if (coupon == null || coupon.getStatus() != CouponStatus.ACTIVE) {
+        return false;
     }
+
+    boolean isSavedByUser = false;
+
+    for (SavedCoupon savedCoupon : savedCoupons) {
+        if (savedCoupon.getUserId().equals(userId)
+                && savedCoupon.getCouponId().equals(couponId)) {
+            isSavedByUser = true;
+            break;
+        }
+    }
+
+    if (!isSavedByUser) {
+        return false;
+    }
+
+    coupon.setUsageCount(coupon.getUsageCount() + 1);
+    redemptions.add(new Redemption(userId, couponId, LocalDate.now()));
+
+    updateStatuses();
+    return true;
+}
 
     /**
      * Gets all coupons saved by a user.

@@ -10,6 +10,10 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * In-memory implementation of the CouponService.
+ * This class stores coupon, saved coupon, and redemption data in lists for demo purposes.
+ */
 @Service
 public class InMemoryCouponService implements CouponService {
 
@@ -17,10 +21,17 @@ public class InMemoryCouponService implements CouponService {
     private final List<SavedCoupon> savedCoupons = new ArrayList<>();
     private final List<Redemption> redemptions = new ArrayList<>();
 
+    /**
+     * Creates the service and loads demo coupon data.
+     */
     public InMemoryCouponService() {
         seedCoupons();
     }
 
+    /**
+     * Loads the original demo coupon data into memory.
+     * This method also clears previous saved coupon and redemption data.
+     */
     private void seedCoupons() {
         coupons.clear();
         savedCoupons.clear();
@@ -48,12 +59,22 @@ public class InMemoryCouponService implements CouponService {
         updateStatuses();
     }
 
+    /**
+     * Gets all coupons after refreshing their current status.
+     *
+     * @return list of all coupons
+     */
     @Override
     public List<Coupon> getAllCoupons() {
         updateStatuses();
         return coupons;
     }
 
+    /**
+     * Gets coupons that are active and available.
+     *
+     * @return list of active coupons
+     */
     @Override
     public List<Coupon> getActiveCoupons() {
         updateStatuses();
@@ -68,6 +89,12 @@ public class InMemoryCouponService implements CouponService {
         return activeCoupons;
     }
 
+    /**
+     * Finds a coupon by ID.
+     *
+     * @param id coupon ID
+     * @return matching coupon, or null if not found
+     */
     @Override
     public Coupon getCouponById(Long id) {
         updateStatuses();
@@ -81,6 +108,13 @@ public class InMemoryCouponService implements CouponService {
         return null;
     }
 
+    /**
+     * Saves an active coupon for a user.
+     *
+     * @param userId ID of the user saving the coupon
+     * @param couponId ID of the coupon being saved
+     * @return true if saved successfully, false if unavailable or already saved
+     */
     @Override
     public boolean saveCoupon(Long userId, Long couponId) {
         updateStatuses();
@@ -101,6 +135,14 @@ public class InMemoryCouponService implements CouponService {
         return true;
     }
 
+    /**
+     * Redeems a coupon for a user.
+     * The coupon must be active before it can be redeemed.
+     *
+     * @param userId ID of the user redeeming the coupon
+     * @param couponId ID of the coupon being redeemed
+     * @return true if redeemed successfully, false otherwise
+     */
     @Override
     public boolean redeemCoupon(Long userId, Long couponId) {
         updateStatuses();
@@ -117,6 +159,12 @@ public class InMemoryCouponService implements CouponService {
         return true;
     }
 
+    /**
+     * Gets all coupons saved by a user.
+     *
+     * @param userId ID of the user
+     * @return list of saved coupons
+     */
     @Override
     public List<Coupon> getSavedCoupons(Long userId) {
         updateStatuses();
@@ -134,6 +182,12 @@ public class InMemoryCouponService implements CouponService {
         return result;
     }
 
+    /**
+     * Gets all coupons redeemed by a user.
+     *
+     * @param userId ID of the user
+     * @return list of redeemed coupons
+     */
     @Override
     public List<Coupon> getRedeemedCoupons(Long userId) {
         updateStatuses();
@@ -151,6 +205,12 @@ public class InMemoryCouponService implements CouponService {
         return result;
     }
 
+    /**
+     * Searches coupons by title, code, or description.
+     *
+     * @param keyword search text entered by the user
+     * @return list of matching coupons
+     */
     @Override
     public List<Coupon> searchCoupons(String keyword) {
         updateStatuses();
@@ -175,11 +235,17 @@ public class InMemoryCouponService implements CouponService {
         return results;
     }
 
+    /**
+     * Resets the demo data back to the original coupons.
+     */
     @Override
     public void resetDemoData() {
         seedCoupons();
     }
 
+    /**
+     * Updates each coupon status based on expiration date and usage limit.
+     */
     private void updateStatuses() {
         for (Coupon coupon : coupons) {
             if (LocalDate.now().isAfter(coupon.getExpirationDate())) {

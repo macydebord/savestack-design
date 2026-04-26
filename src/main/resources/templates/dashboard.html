@@ -64,7 +64,7 @@
 
         <div th:if="${!#lists.isEmpty(savedCoupons)}">
             <div style="display: flex; flex-direction: column; gap: 20px;">
-                <div class="coupon-card" style="padding: 20px;" th:each="coupon : ${savedCoupons}">
+                <div class="coupon-card" th:each="coupon : ${savedCoupons}">
                     <h3 th:text="${coupon.title}">Coupon</h3>
                     <p th:text="${coupon.description}">Description</p>
                     <a class="btn secondary-btn" th:href="@{'/coupon/' + ${coupon.id}}">View Details</a>
@@ -82,7 +82,7 @@
 
         <div th:if="${!#lists.isEmpty(redeemedCoupons)}">
             <div style="display: flex; flex-direction: column; gap: 20px;">
-                <div class="coupon-card" style="padding: 20px;" th:each="coupon : ${redeemedCoupons}">
+                <div class="coupon-card" th:each="coupon : ${redeemedCoupons}">
                     <h3 th:text="${coupon.title}">Coupon</h3>
                     <p th:text="${coupon.description}">Description</p>
                     <a class="btn secondary-btn" th:href="@{'/coupon/' + ${coupon.id}}">View Details</a>
@@ -161,4 +161,43 @@
     .nav-right a:hover {
         text-decoration: underline;
     }
+
+    .coupon-card {
+        background: white;
+        padding: 22px;
+        border-radius: 16px;
+        box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+        border: 1px solid rgba(30, 58, 138, 0.08);
+    }
+
+        .coupon-card h3 {
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-size: 22px;
+            color: #111827;
+        }
+
+        .coupon-card p {
+            font-size: 16px;
+            line-height: 1.5;
+            color: #374151;
+        }
+
+        .coupon-card .btn {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 16px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+    .secondary-btn {
+        background: #1e3a8a;
+        color: white;
+    }
+
+        .secondary-btn:hover {
+            background: #172554;
+        }
 </style>

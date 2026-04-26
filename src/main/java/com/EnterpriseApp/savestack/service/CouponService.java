@@ -41,7 +41,7 @@ public interface CouponService {
     boolean saveCoupon(Long userId, Long couponId);
 
     /**
-     * Redeems a coupon for a user.
+     * Redeems a previously saved coupon for a user.
      *
      * @param userId ID of the user redeeming the coupon
      * @param couponId ID of the coupon being redeemed
@@ -72,6 +72,30 @@ public interface CouponService {
      * @return list of matching coupons
      */
     List<Coupon> searchCoupons(String keyword);
+
+    /**
+     * Adds a new coupon to the system.
+     *
+     * @param coupon coupon being added
+     */
+    void addCoupon(Coupon coupon);
+
+    /**
+     * Updates an existing coupon in the system.
+     *
+     * @param id ID of the coupon being updated
+     * @param updatedCoupon coupon object containing updated data
+     * @return true if updated successfully, false otherwise
+     */
+    boolean updateCoupon(Long id, Coupon updatedCoupon);
+
+    /**
+     * Deletes a coupon from the system.
+     *
+     * @param id ID of the coupon being deleted
+     * @return true if deleted successfully, false otherwise
+     */
+    boolean deleteCoupon(Long id);
 
     /**
      * Resets the app back to its original demo coupon data.

@@ -18,6 +18,15 @@ public class Coupon {
     private CouponStatus status;
 
     /**
+     * Creates an empty coupon.
+     * This constructor is needed for Thymeleaf form binding.
+     */
+    public Coupon() {
+        this.usageCount = 0;
+        this.status = CouponStatus.ACTIVE;
+    }
+
+    /**
      * Creates a new coupon.
      *
      * @param id unique coupon ID
@@ -44,21 +53,33 @@ public class Coupon {
 
     public Long getId() { return id; }
 
+    public void setId(Long id) { this.id = id; }
+
     public String getTitle() { return title; }
+
+    public void setTitle(String title) { this.title = title; }
 
     public String getCode() { return code; }
 
+    public void setCode(String code) { this.code = code; }
+
     public String getDescription() { return description; }
+
+    public void setDescription(String description) { this.description = description; }
 
     public int getDiscountPercent() { return discountPercent; }
 
+    public void setDiscountPercent(int discountPercent) { this.discountPercent = discountPercent; }
+
     public LocalDate getExpirationDate() { return expirationDate; }
+
+    public void setExpirationDate(LocalDate expirationDate) { this.expirationDate = expirationDate; }
 
     public int getUsageLimit() { return usageLimit; }
 
-    public int getUsageCount() { return usageCount; }
+    public void setUsageLimit(int usageLimit) { this.usageLimit = usageLimit; }
 
-    public CouponStatus getStatus() { return status; }
+    public int getUsageCount() { return usageCount; }
 
     /**
      * Updates the number of times this coupon has been redeemed.
@@ -68,6 +89,8 @@ public class Coupon {
     public void setUsageCount(int usageCount) {
         this.usageCount = usageCount;
     }
+
+    public CouponStatus getStatus() { return status; }
 
     /**
      * Updates the coupon status.

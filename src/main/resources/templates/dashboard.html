@@ -3,119 +3,128 @@
 <head>
     <meta charset="UTF-8">
     <title>Dashboard - SaveStack</title>
-    <link rel="stylesheet" th:href="@{/css/style.css}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 
-<body style="background: linear-gradient(135deg, #e3f2fd, #f8fbff); padding-top: 90px;">
+<body>
 
-    <nav class="navbar">
-        <div class="nav-left">
-            <a th:href="@{/}" class="brand">
-                <i class="fa-solid fa-ticket"></i> SaveStack
-            </a>
-        </div>
-        <div class="nav-right">
-            <a th:href="@{/dashboard}">Dashboard</a>
-            <a th:href="@{/allCoupons}">All Coupons</a>
-            <a th:href="@{/savedCoupons}">Saved Coupons</a>
-            <a th:href="@{/redeemedCoupons}">Redeemed</a>
-            <a th:href="@{/login}">Login</a>
-            <a th:href="@{/signup}">Sign Up</a>
-        </div>
-    </nav>
+<nav class="navbar">
+    <div class="nav-left">
+        <a th:href="@{/}" class="brand">
+            <img src="/image/SaveStackIcon.png" alt="logo">
+            SaveStack
+        </a>
+    </div>
+    <div class="nav-right">
+        <a th:href="@{/dashboard}">Dashboard</a>
+        <a th:href="@{/allCoupons}">All Coupons</a>
+        <a th:href="@{/savedCoupons}">Saved Coupons</a>
+        <a th:href="@{/redeemedCoupons}">Redeemed</a>
+        <a th:href="@{/login}">Login</a>
+        <a th:href="@{/signup}">Sign Up</a>
+    </div>
+</nav>
 
-    <section class="page-header" style="text-align: center; margin-top: 30px;">
-        <h1>Coupon Dashboard</h1>
-        <p>Track available, saved, and redeemed coupons in one place.</p>
-    </section>
+<section class="page-header" style="text-align: center; margin-top: 40px;">
+    <h1 style="font-size: 36px;">Coupon Dashboard</h1>
+    <p style="font-size: 18px;">Track available, saved, and redeemed coupons in one place.</p>
+</section>
 
-    <section class="flash-message-section" th:if="${message}">
-        <div class="flash-message">
-            <p th:text="${message}"></p>
-        </div>
-    </section>
+<section style="display: flex; justify-content: center; gap: 25px; margin: 40px 0;">
+    
+    <div style="background: white; padding: 25px; border-radius: 12px; width: 200px; text-align: center; box-shadow: 0 4px 12px rgba(0,0,0,0.08);">
+        <h2 style="font-size: 28px;" th:text="${availableCount}">0</h2>
+        <p style="font-size: 16px;">Active</p>
+    </div>
 
-    <section style="display: flex; justify-content: center; gap: 15px; margin: 30px 0;">
-        
-        <div style="background: white; padding: 18px; border-radius: 10px; width: 160px; text-align: center; box-shadow: 0 3px 8px rgba(0,0,0,0.08);">
-            <h2 th:text="${availableCount}">0</h2>
-            <p>Active</p>
-        </div>
+    <div style="background: white; padding: 25px; border-radius: 12px; width: 200px; text-align: center; box-shadow: 0 4px 12px rgba(0,0,0,0.08);">
+        <h2 style="font-size: 28px;" th:text="${savedCount}">0</h2>
+        <p style="font-size: 16px;">Saved</p>
+    </div>
 
-        <div style="background: white; padding: 18px; border-radius: 10px; width: 160px; text-align: center; box-shadow: 0 3px 8px rgba(0,0,0,0.08);">
-            <h2 th:text="${savedCount}">0</h2>
-            <p>Saved</p>
-        </div>
+    <div style="background: white; padding: 25px; border-radius: 12px; width: 200px; text-align: center; box-shadow: 0 4px 12px rgba(0,0,0,0.08);">
+        <h2 style="font-size: 28px;" th:text="${redeemedCount}">0</h2>
+        <p style="font-size: 16px;">Redeemed</p>
+    </div>
 
-        <div style="background: white; padding: 18px; border-radius: 10px; width: 160px; text-align: center; box-shadow: 0 3px 8px rgba(0,0,0,0.08);">
-            <h2 th:text="${redeemedCount}">0</h2>
-            <p>Redeemed</p>
-        </div>
+</section>
 
-    </section>
+<section style="display: flex; justify-content: center; margin: 40px 0;">
+    <form th:action="@{/resetDemo}" method="post">
+        <button type="submit" class="btn dark-btn" style="padding: 12px 25px; font-size: 16px;">
+            Reset Demo Data
+        </button>
+    </form>
+</section>
 
-    <!-- CENTERED BUTTON -->
-    <section style="display: flex; justify-content: center; margin: 30px 0;">
-        <form th:action="@{/resetDemo}" method="post">
-            <button type="submit" class="btn dark-btn">Reset Demo Data</button>
-        </form>
-    </section>
+<section style="display: flex; justify-content: center; gap: 60px; align-items: flex-start; flex-wrap: wrap;">
 
-    <!-- SIDE BY SIDE SECTIONS -->
-    <section style="display: flex; justify-content: center; gap: 40px; align-items: flex-start; flex-wrap: wrap;">
+    <div style="width: 500px;">
+        <h2 style="text-align: center; font-size: 24px;">Saved Coupons</h2>
 
-        <!-- SAVED -->
-        <div style="width: 400px;">
-            <h2 style="text-align: center;">Saved Coupons</h2>
-
-            <div th:if="${!#lists.isEmpty(savedCoupons)}">
-                <div style="display: flex; flex-direction: column; gap: 15px;">
-                    <div class="coupon-card" th:each="coupon : ${savedCoupons}">
-                        <h3 th:text="${coupon.title}">Coupon</h3>
-                        <p th:text="${coupon.description}">Description</p>
-                        <a class="btn secondary-btn" th:href="@{'/coupon/' + ${coupon.id}}">View Details</a>
-                    </div>
+        <div th:if="${!#lists.isEmpty(savedCoupons)}">
+            <div style="display: flex; flex-direction: column; gap: 20px;">
+                <div class="coupon-card" style="padding: 20px;" th:each="coupon : ${savedCoupons}">
+                    <h3 th:text="${coupon.title}">Coupon</h3>
+                    <p th:text="${coupon.description}">Description</p>
+                    <a class="btn secondary-btn" th:href="@{'/coupon/' + ${coupon.id}}">View Details</a>
                 </div>
             </div>
-
-            <div th:if="${#lists.isEmpty(savedCoupons)}" style="text-align: center;">
-                <p>No saved coupons yet.</p>
-            </div>
         </div>
 
-        <!-- REDEEMED -->
-        <div style="width: 400px;">
-            <h2 style="text-align: center;">Redeemed Coupons</h2>
+        <div th:if="${#lists.isEmpty(savedCoupons)}" style="text-align: center;">
+            <p>No saved coupons yet.</p>
+        </div>
+    </div>
 
-            <div th:if="${!#lists.isEmpty(redeemedCoupons)}">
-                <div style="display: flex; flex-direction: column; gap: 15px;">
-                    <div class="coupon-card" th:each="coupon : ${redeemedCoupons}">
-                        <h3 th:text="${coupon.title}">Coupon</h3>
-                        <p th:text="${coupon.description}">Description</p>
-                        <a class="btn secondary-btn" th:href="@{'/coupon/' + ${coupon.id}}">View Details</a>
-                    </div>
+    <div style="width: 500px;">
+        <h2 style="text-align: center; font-size: 24px;">Redeemed Coupons</h2>
+
+        <div th:if="${!#lists.isEmpty(redeemedCoupons)}">
+            <div style="display: flex; flex-direction: column; gap: 20px;">
+                <div class="coupon-card" style="padding: 20px;" th:each="coupon : ${redeemedCoupons}">
+                    <h3 th:text="${coupon.title}">Coupon</h3>
+                    <p th:text="${coupon.description}">Description</p>
+                    <a class="btn secondary-btn" th:href="@{'/coupon/' + ${coupon.id}}">View Details</a>
                 </div>
             </div>
-
-            <div th:if="${#lists.isEmpty(redeemedCoupons)}" style="text-align: center;">
-                <p>No redeemed coupons yet.</p>
-            </div>
         </div>
 
-    </section>
+        <div th:if="${#lists.isEmpty(redeemedCoupons)}" style="text-align: center;">
+            <p>No redeemed coupons yet.</p>
+        </div>
+    </div>
+
+</section>
 
 </body>
 </html>
 
 <style>
+    html {
+        background: linear-gradient(135deg, rgba(227,242,253,0.5), rgba(248,251,255,0.5)),
+                    url('/image/SSBackground.png');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+    }
+
+    body {
+        margin: 0;
+        padding-top: 90px;
+        padding-bottom: 140px;
+        background: transparent;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
     .navbar {
         position: fixed;
         top: 0;
         left: 0;
         width: 100%;
         background: #1e3a8a;
-        padding: 15px 30px;
+        padding: 18px 35px;
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -124,25 +133,29 @@
     }
 
     .nav-left .brand {
-        font-size: 20px;
+        font-size: 22px;
         font-weight: bold;
         color: white;
         text-decoration: none;
-        white-space: nowrap;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .brand img {
+        width: 24px;
+        height: auto;
     }
 
     .nav-right {
         display: flex;
-        gap: 15px;
-        flex-wrap: wrap;
-        justify-content: flex-end;
+        gap: 20px;
     }
 
     .nav-right a {
         color: white;
         text-decoration: none;
         font-weight: 500;
-        white-space: nowrap;
     }
 
     .nav-right a:hover {

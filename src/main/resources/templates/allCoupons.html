@@ -3,83 +3,221 @@
 <head>
     <meta charset="UTF-8">
     <title>All Coupons - SaveStack</title>
-    <link rel="stylesheet" th:href="@{/css/styles.css}">
 </head>
+
 <body>
 
-    <nav class="navbar">
-        <div class="nav-left">
-            <a th:href="@{/}" class="brand">SaveStack</a>
-        </div>
-        <div class="nav-right">
-            <a th:href="@{/dashboard}">Dashboard</a>
-            <a th:href="@{/allCoupons}">All Coupons</a>
-            <a th:href="@{/savedCoupons}">Saved Coupons</a>
-            <a th:href="@{/redeemedCoupons}">Redeemed</a>
-            <a th:href="@{/login}">Login</a>
-            <a th:href="@{/signup}">Sign Up</a>
-        </div>
-    </nav>
+<nav class="navbar">
+    <div class="nav-left">
+        <a th:href="@{/}" class="brand">
+            <img src="/image/SaveStackIcon.png" alt="logo">
+            SaveStack
+        </a>
+    </div>
+    <div class="nav-right">
+        <a th:href="@{/dashboard}">Dashboard</a>
+        <a th:href="@{/allCoupons}">All Coupons</a>
+        <a th:href="@{/savedCoupons}">Saved Coupons</a>
+        <a th:href="@{/redeemedCoupons}">Redeemed</a>
+        <a th:href="@{/login}">Login</a>
+        <a th:href="@{/signup}">Sign Up</a>
+    </div>
+</nav>
 
-    <section class="page-header">
-        <h1>All Coupons</h1>
-        <p>Browse all current coupons and search by title, code, or description.</p>
-    </section>
+<section class="page-header">
+    <h1>All Coupons</h1>
+    <p>Browse all current coupons and search by title, code, or description.</p>
+</section>
 
-    <section class="form-section">
-        <div class="form-card">
-            <form th:action="@{/allCoupons}" method="get">
-                <label for="keyword">Search Coupons</label>
-                <input type="text" id="keyword" name="keyword" th:value="${keyword}" placeholder="Search by title, code, or description">
-                <button type="submit" class="btn primary-btn">Search</button>
-            </form>
-        </div>
-    </section>
+<section class="form-section">
+    <div class="form-card">
+        <form th:action="@{/allCoupons}" method="get">
+            <label for="keyword">Search Coupons</label>
+            <input type="text" id="keyword" name="keyword" th:value="${keyword}" placeholder="Search by title, code, or description">
+            <button type="submit" class="btn primary-btn">Search</button>
+        </form>
+    </div>
+</section>
 
-    <section class="flash-message-section" th:if="${message}">
-        <div class="flash-message">
-            <p th:text="${message}"></p>
-        </div>
-    </section>
+<section class="flash-message-section" th:if="${message}">
+    <div class="flash-message">
+        <p th:text="${message}"></p>
+    </div>
+</section>
 
-    <section class="coupon-grid-section">
-        <div class="coupon-grid">
-            <div class="coupon-card" th:each="coupon : ${coupons}">
-                <div class="coupon-top">
-                    <h2 th:text="${coupon.title}">Coupon Title</h2>
-                    <span class="status-badge"
-                          th:classappend="${coupon.status.name() == 'ACTIVE'} ? ' status-active' : (${coupon.status.name() == 'EXPIRED'} ? ' status-expired' : ' status-used')"
-                          th:text="${coupon.status}">
-                        ACTIVE
-                    </span>
-                </div>
+<section class="coupon-grid-section">
+    <div class="coupon-grid">
+        <div class="coupon-card" th:each="coupon : ${coupons}">
 
-                <p class="coupon-code">
-                    Code: <strong th:text="${coupon.code}">CODE123</strong>
-                </p>
-
-                <p class="coupon-description" th:text="${coupon.description}">Coupon description goes here.</p>
-
-                <div class="coupon-meta">
-                    <p>Discount: <span th:text="${coupon.discountPercent}">10</span>%</p>
-                    <p>Expires: <span th:text="${coupon.expirationDate}">2026-04-30</span></p>
-                    <p>Used: <span th:text="${coupon.usageCount}">0</span> / <span th:text="${coupon.usageLimit}">5</span></p>
-                </div>
-
-                <div class="coupon-actions">
-                    <a class="btn secondary-btn" th:href="@{'/coupon/' + ${coupon.id}}">View Details</a>
-
-                    <form th:action="@{'/coupon/' + ${coupon.id} + '/save'}" method="post">
-                        <button type="submit" class="btn primary-btn">Save</button>
-                    </form>
-
-                    <form th:action="@{'/coupon/' + ${coupon.id} + '/redeem'}" method="post">
-                        <button type="submit" class="btn dark-btn">Redeem</button>
-                    </form>
-                </div>
+            <div class="coupon-top">
+                <h2 th:text="${coupon.title}">Coupon Title</h2>
+                <span class="status-badge"
+                      th:classappend="${coupon.status.name() == 'ACTIVE'} ? ' status-active' : (${coupon.status.name() == 'EXPIRED'} ? ' status-expired' : ' status-used')"
+                      th:text="${coupon.status}">
+                    ACTIVE
+                </span>
             </div>
+
+            <p class="coupon-code">
+                Code: <strong th:text="${coupon.code}">CODE123</strong>
+            </p>
+
+            <p class="coupon-description" th:text="${coupon.description}">Coupon description goes here.</p>
+
+            <div class="coupon-meta">
+                <p>Discount: <span th:text="${coupon.discountPercent}">10</span>%</p>
+                <p>Expires: <span th:text="${coupon.expirationDate}">2026-04-30</span></p>
+                <p>Used: <span th:text="${coupon.usageCount}">0</span> / <span th:text="${coupon.usageLimit}">5</span></p>
+            </div>
+
+            <div class="coupon-actions">
+                <a class="btn secondary-btn" th:href="@{'/coupon/' + ${coupon.id}}">View</a>
+
+                <form th:action="@{'/coupon/' + ${coupon.id} + '/save'}" method="post">
+                    <button type="submit" class="btn primary-btn">Save</button>
+                </form>
+
+                <form th:action="@{'/coupon/' + ${coupon.id} + '/redeem'}" method="post">
+                    <button type="submit" class="btn dark-btn">Redeem</button>
+                </form>
+            </div>
+
         </div>
-    </section>
+    </div>
+</section>
 
 </body>
 </html>
+
+<style>
+    html {
+        background: linear-gradient(135deg, rgba(227,242,253,0.5), rgba(248,251,255,0.5)),
+                    url('/image/SSBackground.png');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+    }
+
+    body {
+        margin: 0;
+        padding-top: 90px;
+        padding-bottom: 120px;
+        background: transparent;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background: #1e3a8a;
+        padding: 18px 35px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 1000;
+    }
+
+    .nav-left .brand {
+        font-size: 22px;
+        font-weight: bold;
+        color: white;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .brand img {
+        width: 24px;
+    }
+
+    .nav-right {
+        display: flex;
+        gap: 20px;
+    }
+
+    .nav-right a {
+        color: white;
+        text-decoration: none;
+    }
+
+    .nav-right a:hover {
+        text-decoration: underline;
+    }
+
+    .page-header {
+        text-align: center;
+        margin: 40px 0;
+    }
+
+    .page-header h1 {
+        font-size: 36px;
+    }
+
+    .form-card {
+        max-width: 600px;
+        margin: auto;
+        padding: 20px;
+        background: rgba(255,255,255,0.6);
+        backdrop-filter: blur(8px);
+        border-radius: 12px;
+    }
+
+    .coupon-grid {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 25px;
+        padding: 20px;
+    }
+
+    .coupon-card {
+        background: rgba(255,255,255,0.7);
+        backdrop-filter: blur(6px);
+        padding: 20px;
+        border-radius: 14px;
+        width: 280px;
+        box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .coupon-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 8px 20px rgba(0,0,0,0.15),
+                    0 0 12px rgba(59,130,246,0.25);
+    }
+
+    .coupon-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .coupon-actions {
+        display: flex;
+        gap: 8px;
+        margin-top: 10px;
+        flex-wrap: wrap;
+    }
+
+    .status-active {
+        background: #d1fae5;
+        padding: 4px 8px;
+        border-radius: 6px;
+    }
+
+    .status-expired {
+        background: #fee2e2;
+        padding: 4px 8px;
+        border-radius: 6px;
+    }
+
+    .status-used {
+        background: #e0e7ff;
+        padding: 4px 8px;
+        border-radius: 6px;
+    }
+</style>

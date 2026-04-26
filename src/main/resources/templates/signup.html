@@ -3,42 +3,188 @@
 <head>
     <meta charset="UTF-8">
     <title>Sign Up - SaveStack</title>
-    <link rel="stylesheet" th:href="@{/css/styles.css}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
+
 <body>
 
-    <nav class="navbar">
-        <div class="nav-left">
-            <a th:href="@{/}" class="brand">SaveStack</a>
-        </div>
-        <div class="nav-right">
-            <a th:href="@{/dashboard}">Dashboard</a>
-            <a th:href="@{/allCoupons}">All Coupons</a>
-            <a th:href="@{/savedCoupons}">Saved Coupons</a>
-            <a th:href="@{/redeemedCoupons}">Redeemed</a>
-            <a th:href="@{/login}">Login</a>
-            <a th:href="@{/signup}">Sign Up</a>
-        </div>
-    </nav>
+<nav class="navbar">
+    <div class="nav-left">
+        <a th:href="@{/}" class="brand">
+            <img src="/image/SaveStackIcon.png" alt="logo">
+            SaveStack
+        </a>
+    </div>
+    <div class="nav-right">
+        <a th:href="@{/dashboard}">Dashboard</a>
+        <a th:href="@{/allCoupons}">All Coupons</a>
+        <a th:href="@{/savedCoupons}">Saved Coupons</a>
+        <a th:href="@{/redeemedCoupons}">Redeemed</a>
+        <a th:href="@{/login}">Login</a>
+        <a th:href="@{/signup}">Sign Up</a>
+    </div>
+</nav>
 
-    <section class="form-section">
-        <div class="form-card">
-            <h1>Create Account</h1>
-            <form>
-                <label>Name</label>
-                <input type="text" placeholder="Enter your name">
+<section class="form-section">
+    <div class="form-card">
+        <h1>Create Account</h1>
+        <p class="subtitle">Join and start stacking savings 💸</p>
 
-                <label>Email</label>
-                <input type="email" placeholder="Enter your email">
+        <form>
+            <label>Name</label>
+            <input type="text" placeholder="Enter your name">
 
-                <label>Password</label>
-                <input type="password" placeholder="Create a password">
+            <label>Email</label>
+            <input type="email" placeholder="Enter your email">
 
-                <button type="submit" class="btn primary-btn">Sign Up</button>
-            </form>
-            <p class="small-text">Placeholder signup page for project demo.</p>
-        </div>
-    </section>
+            <label>Password</label>
+            <input type="password" placeholder="Create a password">
+
+            <button type="submit" class="btn primary-btn">
+                <i class="fa-solid fa-user-plus"></i> Sign Up
+            </button>
+        </form>
+
+        <p class="small-text">Already have an account? <a th:href="@{/login}">Login</a></p>
+    </div>
+</section>
 
 </body>
 </html>
+
+<style>
+html {
+    background: linear-gradient(135deg, rgba(227,242,253,0.5), rgba(248,251,255,0.5)),
+                url('/image/SSBackground.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+body {
+    margin: 0;
+    padding-top: 90px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: #1e3a8a;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    z-index: 1000;
+}
+
+.brand,
+.brand:visited,
+.brand:active {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.brand img {
+    width: 24px;
+}
+
+.nav-right {
+    display: flex;
+    gap: 15px;
+}
+
+.nav-right a {
+    color: white;
+    text-decoration: none;
+}
+
+.nav-right a:hover {
+    text-decoration: underline;
+}
+
+.form-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 90px);
+}
+
+.form-card {
+    background: rgba(255,255,255,0.65);
+    backdrop-filter: blur(10px);
+    padding: 35px;
+    border-radius: 16px;
+    width: 340px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    text-align: center;
+}
+
+.form-card h1 {
+    margin-bottom: 5px;
+    color: #1e3a8a;
+}
+
+.subtitle {
+    margin-bottom: 20px;
+    color: #475569;
+    font-size: 14px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    text-align: left;
+}
+
+input {
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #cbd5e1;
+    font-size: 14px;
+}
+
+input:focus {
+    outline: none;
+    border-color: #1e3a8a;
+    box-shadow: 0 0 6px rgba(30,58,138,0.3);
+}
+
+button {
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 8px;
+    border: none;
+    background: #1e3a8a;
+    color: white;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+button:hover {
+    opacity: 0.9;
+}
+
+.small-text {
+    margin-top: 15px;
+    font-size: 13px;
+    color: #475569;
+}
+
+.small-text a {
+    color: #1e3a8a;
+    text-decoration: none;
+}
+
+.small-text a:hover {
+    text-decoration: underline;
+}
+</style>

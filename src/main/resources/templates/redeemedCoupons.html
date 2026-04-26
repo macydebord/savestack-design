@@ -3,68 +3,233 @@
 <head>
     <meta charset="UTF-8">
     <title>Redeemed Coupons - SaveStack</title>
-    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
+
 <body>
 
-    <nav class="navbar">
-        <div class="nav-left">
-            <a th:href="@{/}" class="brand">SaveStack</a>
-        </div>
-        <div class="nav-right">
-            <a th:href="@{/dashboard}">Dashboard</a>
-            <a th:href="@{/allCoupons}">All Coupons</a>
-            <a th:href="@{/savedCoupons}">Saved Coupons</a>
-            <a th:href="@{/redeemedCoupons}">Redeemed</a>
-            <a th:href="@{/login}">Login</a>
-            <a th:href="@{/signup}">Sign Up</a>
-        </div>
-    </nav>
+<nav class="navbar">
+    <div class="nav-left">
+        <a th:href="@{/}" class="brand">
+            <img src="/image/SaveStackIcon.png" alt="logo">
+            SaveStack
+        </a>
+    </div>
+    <div class="nav-right">
+        <a th:href="@{/dashboard}">Dashboard</a>
+        <a th:href="@{/allCoupons}">All Coupons</a>
+        <a th:href="@{/savedCoupons}">Saved Coupons</a>
+        <a th:href="@{/redeemedCoupons}">Redeemed</a>
+        <a th:href="@{/login}">Login</a>
+        <a th:href="@{/signup}">Sign Up</a>
+    </div>
+</nav>
 
-    <section class="page-header">
-        <h1>Redeemed Coupons</h1>
-        <p>View coupons you have already redeemed.</p>
-    </section>
+<section class="page-header">
+    <h1>Redeemed Coupons</h1>
+    <p>Coupons you’ve already used.</p>
+</section>
 
-    <section class="coupon-grid-section" th:if="${#lists.isEmpty(coupons)}">
-        <div class="detail-card">
-            <h2>No Redeemed Coupons Yet</h2>
-            <p>You have not redeemed any coupons yet.</p>
-            <a th:href="@{/allCoupons}" class="btn primary-btn">Browse Coupons</a>
-        </div>
-    </section>
+<section class="coupon-grid-section" th:if="${#lists.isEmpty(coupons)}">
+    <div class="empty-state">
+        <h2>No Redeemed Coupons Yet</h2>
+        <p>You haven’t redeemed anything yet.</p>
+        <p style="margin-top:10px;">Go find something good 😏</p>
+        <a th:href="@{/allCoupons}" class="btn primary-btn">Browse Coupons</a>
+    </div>
+</section>
 
-    <section class="coupon-grid-section" th:if="${!#lists.isEmpty(coupons)}">
-        <div class="coupon-grid">
-            <div class="coupon-card" th:each="coupon : ${coupons}">
-                <div class="coupon-top">
-                    <h2 th:text="${coupon.title}">Coupon Title</h2>
-                    <span class="status-badge"
-                          th:classappend="${coupon.status.name() == 'ACTIVE'} ? ' status-active' :
-                                      (${coupon.status.name() == 'EXPIRED'} ? ' status-expired' : ' status-used')"
-                          th:text="${coupon.status}">
-                        ACTIVE
-                    </span>
-                </div>
+<section class="coupon-grid-section" th:if="${!#lists.isEmpty(coupons)}">
+    <div class="coupon-grid">
+        <div class="coupon-card" th:each="coupon : ${coupons}">
+            <div class="coupon-top">
+                <h2 th:text="${coupon.title}">Coupon Title</h2>
+                <span class="status-badge"
+                      th:classappend="${coupon.status.name() == 'ACTIVE'} ? ' status-active' :
+                                  (${coupon.status.name() == 'EXPIRED'} ? ' status-expired' : ' status-used')"
+                      th:text="${coupon.status}">
+                    ACTIVE
+                </span>
+            </div>
 
-                <p class="coupon-code">
-                    Code: <strong th:text="${coupon.code}">CODE123</strong>
-                </p>
+            <p class="coupon-code">
+                Code: <strong th:text="${coupon.code}">CODE123</strong>
+            </p>
 
-                <p class="coupon-description" th:text="${coupon.description}">Coupon description goes here.</p>
+            <p class="coupon-description" th:text="${coupon.description}">Coupon description goes here.</p>
 
-                <div class="coupon-meta">
-                    <p>Discount: <span th:text="${coupon.discountPercent}">10</span>%</p>
-                    <p>Expires: <span th:text="${coupon.expirationDate}">2026-04-30</span></p>
-                    <p>Used: <span th:text="${coupon.usageCount}">0</span> / <span th:text="${coupon.usageLimit}">5</span></p>
-                </div>
+            <div class="coupon-meta">
+                <p>Discount: <span th:text="${coupon.discountPercent}">10</span>%</p>
+                <p>Expires: <span th:text="${coupon.expirationDate}">2026-04-30</span></p>
+                <p>Used: <span th:text="${coupon.usageCount}">0</span> / <span th:text="${coupon.usageLimit}">5</span></p>
+            </div>
 
-                <div class="coupon-actions">
-                    <a class="btn secondary-btn" th:href="@{'/coupon/' + ${coupon.id}}">View Details</a>
-                </div>
+            <div class="coupon-actions">
+                <a class="btn secondary-btn" th:href="@{'/coupon/' + ${coupon.id}}">
+                    <i class="fa-solid fa-eye"></i> View
+                </a>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
 </body>
 </html>
+
+
+
+
+
+<style>
+html {
+    background: linear-gradient(135deg, rgba(227,242,253,0.5), rgba(248,251,255,0.5)),
+                url('/image/SSBackground.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+body {
+    margin: 0;
+    padding-top: 90px;
+    padding-bottom: 120px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: transparent;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: #1e3a8a;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    z-index: 1000;
+}
+
+.brand,
+.brand:visited,
+.brand:active {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.brand img {
+    width: 24px;
+}
+
+.nav-right {
+    display: flex;
+    gap: 15px;
+}
+
+.nav-right a {
+    color: white;
+    text-decoration: none;
+}
+
+.nav-right a:hover {
+    text-decoration: underline;
+}
+
+.page-header {
+    text-align: center;
+    margin: 40px 0;
+}
+
+.page-header h1 {
+    font-size: 34px;
+    color: #1e3a8a;
+}
+
+.page-header p {
+    color: #475569;
+}
+
+.coupon-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+    padding: 20px;
+}
+
+.coupon-card {
+    background: rgba(255,255,255,0.7);
+    backdrop-filter: blur(6px);
+    padding: 20px;
+    border-radius: 14px;
+    width: 280px;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.coupon-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15),
+                0 0 12px rgba(59,130,246,0.25);
+}
+
+.coupon-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.coupon-code {
+    margin-top: 8px;
+    font-size: 14px;
+}
+
+.coupon-code strong {
+    background: rgba(30,58,138,0.1);
+    padding: 4px 8px;
+    border-radius: 6px;
+}
+
+.coupon-meta {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #475569;
+}
+
+.coupon-actions {
+    margin-top: 12px;
+}
+
+.status-active {
+    background: #d1fae5;
+    padding: 4px 8px;
+    border-radius: 6px;
+}
+
+.status-expired {
+    background: #fee2e2;
+    padding: 4px 8px;
+    border-radius: 6px;
+}
+
+.status-used {
+    background: #e0e7ff;
+    padding: 4px 8px;
+    border-radius: 6px;
+}
+
+.empty-state {
+    max-width: 500px;
+    margin: 60px auto;
+    text-align: center;
+    padding: 30px;
+    background: rgba(255,255,255,0.6);
+    backdrop-filter: blur(8px);
+    border-radius: 12px;
+}
+</style>

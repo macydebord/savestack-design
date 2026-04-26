@@ -4,66 +4,237 @@
     <meta charset="UTF-8">
     <title>SaveStack</title>
     <link rel="stylesheet" th:href="@{/css/styles.css}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
+
 <body>
 
-    <nav class="navbar">
-        <div class="nav-left">
-            <a th:href="@{/}" class="brand">SaveStack</a>
-        </div>
-        <div class="nav-right">
-            <a th:href="@{/dashboard}">Dashboard</a>
-            <a th:href="@{/allCoupons}">All Coupons</a>
-            <a th:href="@{/savedCoupons}">Saved Coupons</a>
-            <a th:href="@{/redeemedCoupons}">Redeemed</a>
-            <a th:href="@{/login}">Login</a>
-            <a th:href="@{/signup}">Sign Up</a>
-        </div>
-    </nav>
+<nav class="navbar">
+    <div class="nav-left">
+        <a th:href="@{/}" class="brand">
+            <img src="/image/SaveStackIcon.png" alt="logo">
+            SaveStack
+        </a>
+    </div>
+    <div class="nav-right">
+        <a th:href="@{/dashboard}">Dashboard</a>
+        <a th:href="@{/allCoupons}">All Coupons</a>
+        <a th:href="@{/savedCoupons}">Saved Coupons</a>
+        <a th:href="@{/redeemedCoupons}">Redeemed</a>
+        <a th:href="@{/login}">Login</a>
+        <a th:href="@{/signup}">Sign Up</a>
+    </div>
+</nav>
 
-    <section class="hero">
-        <div class="hero-content">
-            <h1>Save coupons. Stack savings. Shop smarter.</h1>
-            <p>Browse available deals, save coupons you like, and redeem them before they expire.</p>
-            <a th:href="@{/allCoupons}" class="btn primary-btn">Browse Coupons</a>
-        </div>
-    </section>
+<section class="hero">
+    <div class="hero-content">
+        <h1>Save coupons. Stack savings. Shop smarter.</h1>
+        <p>Browse available deals, save coupons you like, and redeem them before they expire.</p>
+        <br>
+        <p style="text-align: center;">Coupons for you, when you want them.</p>
+        
+        <a th:href="@{/allCoupons}" class="btn primary-btn">Browse Coupons</a>
 
-    <section class="home-section">
-        <h2>How SaveStack Works</h2>
-        <div class="info-grid">
+        <!-- 🔥 NEW LOGO -->
+        <div class="hero-logo">
+            <img src="/image/SaveStackIcon.png" alt="SaveStack Logo">
+        </div>
+
+    </div>
+</section>
+
+<section class="home-section">
+    
+    <h2>How SaveStack Works</h2>
+    <div class="info-grid">
+
+        <a th:href="@{/allCoupons}" class="card-link">
             <div class="info-card">
                 <h3>Browse</h3>
+                <br>
                 <p>View active and available coupons across different stores and categories.</p>
+                <p> Check out our latest deals! From brands such as BrandCo! Shopping LTD and more.</p>
             </div>
+        </a>
+
+        <a th:href="@{/savedCoupons}" class="card-link">
             <div class="info-card">
                 <h3>Save</h3>
+                <br>
                 <p>Save coupons you want to use later so you can keep track of your deals.</p>
+                <p> Find a coupon, save a coupon, save more. It's that easy to keep your discounts organized.</p>
             </div>
+        </a>
+
+        <a th:href="@{/redeemedCoupons}" class="card-link">
             <div class="info-card">
                 <h3>Redeem</h3>
+                <br>
                 <p>Redeem your saved coupons and automatically update their status when used.</p>
+                <p> Simply click the redeem button and your coupon will be marked as used.</p>
             </div>
-        </div>
-    </section>
+        </a>
 
-    <section class="home-section alt-section">
-        <h2>Why Use SaveStack?</h2>
-        <div class="info-grid">
-            <div class="info-card">
-                <h3>Stay Organized</h3>
-                <p>Keep your discounts in one place instead of searching through emails or screenshots.</p>
-            </div>
-            <div class="info-card">
-                <h3>Avoid Expired Deals</h3>
-                <p>Coupon statuses update automatically so you can quickly see which offers are still valid.</p>
-            </div>
-            <div class="info-card">
-                <h3>Easy to Use</h3>
-                <p>Simple pages and clean actions make saving and redeeming offers fast and easy.</p>
-            </div>
+    </div>
+
+</section>
+
+<section class="home-section alt-section">
+
+    <h2>Why Use SaveStack?</h2>
+
+    <div class="info-grid">
+        <div class="info-card">
+            <h3>Stay Organized</h3>
+            <br>
+            <p>Keep your discounts in one place.</p> 
+            <br>
+            <p>One app, many savings.</p>
+            <br>
+            <p>All in one place.</p>
         </div>
-    </section>
+
+        <div class="info-card">
+            <h3>Avoid Expired Deals</h3>
+            <br> 
+            <p>Coupon statuses update automatically so you can quickly see which offers are still valid.</p>
+            <br>
+            <p>No more expired coupons cluttering your saved list.</p>
+            <br>
+            <p>Save only the deals you can actually use.</p>
+        </div>
+
+        <div class="info-card">
+            <h3>Easy to Use</h3>
+            <br>
+            <p>Simple pages and clean actions make saving and redeeming offers fast and easy.</p>
+            <br>
+            <p>Spend less time managing coupons and more time saving money.</p> 
+        </div>
+
+    </div>
+</section>
 
 </body>
 </html>
+
+<style>
+    html {
+        background: linear-gradient(135deg, rgba(227, 242, 253, 0.5), rgba(248,251,255,0.5)),
+                    url('/image/SSBackground.png');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+    }
+
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        margin: 0;
+        padding-top: 90px;
+        padding-bottom: 120px;
+        background: transparent;
+    }
+
+    .navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background: #1e3a8a;
+        padding: 15px 30px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 1000;
+        box-sizing: border-box;
+    }
+
+    .nav-left .brand {
+        font-size: 20px;
+        font-weight: bold;
+        color: white;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .brand img {
+        width: 45px;
+        height: 45px;
+    }
+
+    .nav-right {
+        display: flex;
+        gap: 15px;
+    }
+
+    .nav-right a {
+        color: white;
+        text-decoration: none;
+        font-weight: 500;
+    }
+
+    .nav-right a:hover {
+        text-decoration: underline;
+    }
+
+    .hero {
+        background: rgba(255,255,255,0.35);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        padding: 80px 20px;
+        text-align: center;
+        border-radius: 16px;
+        margin: 40px auto;
+        max-width: 900px;
+        box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    }
+
+    .hero h1 {
+        color: #1e3a8a;
+        font-weight: 700;
+    }
+
+    .hero p {
+        color: #1f2937;
+    }
+
+        .hero-logo {
+        margin-top: 30px;
+        display: flex;
+        justify-content: center;
+    }
+
+    .hero-logo img {
+        width: 180px;
+        height: 180px;
+        object-fit: contain;
+        opacity: 0.95;
+    }
+
+    .home-section {
+        background: transparent !important;
+    }
+
+    .alt-section {
+        background: transparent !important;
+    }
+
+    .card-link {
+        text-decoration: none;
+        color: inherit;
+    }
+
+    .card-link .info-card {
+        cursor: pointer;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .card-link .info-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 16px rgba(0,0,0,0.12),
+                    0 0 12px rgba(59,130,246,0.25);
+    }
+</style>

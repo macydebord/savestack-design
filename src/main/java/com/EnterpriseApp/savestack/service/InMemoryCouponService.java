@@ -12,7 +12,7 @@ import java.util.List;
 
 /**
  * In-memory implementation of the CouponService.
- * This class stores coupon, saved coupon, and redemption data in lists for demo purposes.
+ * Stores coupon data in lists for demo purposes.
  */
 @Service
 public class InMemoryCouponService implements CouponService {
@@ -22,15 +22,14 @@ public class InMemoryCouponService implements CouponService {
     private final List<Redemption> redemptions = new ArrayList<>();
 
     /**
-     * Creates the service and loads demo coupon data.
+     * Creates the service and loads demo data.
      */
     public InMemoryCouponService() {
         seedCoupons();
     }
 
     /**
-     * Loads the original demo coupon data into memory.
-     * This method also clears previous saved coupon and redemption data.
+     * Loads initial demo coupons and resets saved/redeemed data.
      */
     private void seedCoupons() {
         coupons.clear();
@@ -52,17 +51,15 @@ public class InMemoryCouponService implements CouponService {
 
         coupons.add(new Coupon(13L, "Expired Demo", "OLD5", "Example expired coupon", 5, LocalDate.now().minusDays(2), 5));
 
-        Coupon usedUpCoupon = new Coupon(14L, "Used Up Demo", "DONE20", "Example used up coupon", 20, LocalDate.now().plusDays(3), 2);
-        usedUpCoupon.setUsageCount(2);
-        coupons.add(usedUpCoupon);
+        Coupon usedUp = new Coupon(14L, "Used Up Demo", "DONE20", "Example used up coupon", 20, LocalDate.now().plusDays(3), 2);
+        usedUp.setUsageCount(2);
+        coupons.add(usedUp);
 
         updateStatuses();
     }
 
     /**
-     * Gets all coupons after refreshing their current status.
-     *
-     * @return list of all coupons
+     * Gets all coupons.
      */
     @Override
     public List<Coupon> getAllCoupons() {
@@ -71,29 +68,25 @@ public class InMemoryCouponService implements CouponService {
     }
 
     /**
-     * Gets coupons that are active and available.
-     *
-     * @return list of active coupons
+     * Gets active coupons only.
      */
     @Override
     public List<Coupon> getActiveCoupons() {
         updateStatuses();
-        List<Coupon> activeCoupons = new ArrayList<>();
+
+        List<Coupon> active = new ArrayList<>();
 
         for (Coupon coupon : coupons) {
             if (coupon.getStatus() == CouponStatus.ACTIVE) {
-                activeCoupons.add(coupon);
+                active.add(coupon);
             }
         }
 
-        return activeCoupons;
+        return active;
     }
 
     /**
      * Finds a coupon by ID.
-     *
-     * @param id coupon ID
-     * @return matching coupon, or null if not found
      */
     @Override
     public Coupon getCouponById(Long id) {
@@ -109,11 +102,7 @@ public class InMemoryCouponService implements CouponService {
     }
 
     /**
-     * Saves an active coupon for a user.
-     *
-     * @param userId ID of the user saving the coupon
-     * @param couponId ID of the coupon being saved
-     * @return true if saved successfully, false if unavailable or already saved
+     * Saves a coupon for a user.
      */
     @Override
     public boolean saveCoupon(Long userId, Long couponId) {
@@ -125,8 +114,9 @@ public class InMemoryCouponService implements CouponService {
             return false;
         }
 
-        for (SavedCoupon savedCoupon : savedCoupons) {
-            if (savedCoupon.getUserId().equals(userId) && savedCoupon.getCouponId().equals(couponId)) {
+        for (SavedCoupon saved : savedCoupons) {
+            if (saved.getUserId().equals(userId)
+                    && saved.getCouponId().equals(couponId)) {
                 return false;
             }
         }
@@ -137,57 +127,51 @@ public class InMemoryCouponService implements CouponService {
 
     /**
      * Redeems a coupon for a user.
-     * The coupon must be active before it can be redeemed.
-     *
-     * @param userId ID of the user redeeming the coupon
-     * @param couponId ID of the couposuccessfullyn being redeemed
-     * @return true if redeemed successfully, false otherwise
+     * Coupon must be active and already saved.
      */
     @Override
-public boolean redeemCoupon(Long userId, Long couponId) {
-    updateStatuses();
+    public boolean redeemCoupon(Long userId, Long couponId) {
+        updateStatuses();
 
-    Coupon coupon = getCouponById(couponId);
+        Coupon coupon = getCouponById(couponId);
 
-    if (coupon == null || coupon.getStatus() != CouponStatus.ACTIVE) {
-        return false;
-    }
-
-    boolean isSavedByUser = false;
-
-    for (SavedCoupon savedCoupon : savedCoupons) {
-        if (savedCoupon.getUserId().equals(userId)
-                && savedCoupon.getCouponId().equals(couponId)) {
-            isSavedByUser = true;
-            break;
+        if (coupon == null || coupon.getStatus() != CouponStatus.ACTIVE) {
+            return false;
         }
+
+        boolean isSaved = false;
+
+        for (SavedCoupon saved : savedCoupons) {
+            if (saved.getUserId().equals(userId)
+                    && saved.getCouponId().equals(couponId)) {
+                isSaved = true;
+                break;
+            }
+        }
+
+        if (!isSaved) {
+            return false;
+        }
+
+        coupon.setUsageCount(coupon.getUsageCount() + 1);
+        redemptions.add(new Redemption(userId, couponId, LocalDate.now()));
+
+        updateStatuses();
+        return true;
     }
-
-    if (!isSavedByUser) {
-        return false;
-    }
-
-    coupon.setUsageCount(coupon.getUsageCount() + 1);
-    redemptions.add(new Redemption(userId, couponId, LocalDate.now()));
-
-    updateStatuses();
-    return true;
-}
 
     /**
-     * Gets all coupons saved by a user.
-     *
-     * @param userId ID of the user
-     * @return list of saved coupons
+     * Gets saved coupons for a user.
      */
     @Override
     public List<Coupon> getSavedCoupons(Long userId) {
         updateStatuses();
+
         List<Coupon> result = new ArrayList<>();
 
-        for (SavedCoupon savedCoupon : savedCoupons) {
-            if (savedCoupon.getUserId().equals(userId)) {
-                Coupon coupon = getCouponById(savedCoupon.getCouponId());
+        for (SavedCoupon saved : savedCoupons) {
+            if (saved.getUserId().equals(userId)) {
+                Coupon coupon = getCouponById(saved.getCouponId());
                 if (coupon != null) {
                     result.add(coupon);
                 }
@@ -198,14 +182,12 @@ public boolean redeemCoupon(Long userId, Long couponId) {
     }
 
     /**
-     * Gets all coupons redeemed by a user.
-     *
-     * @param userId ID of the user
-     * @return list of redeemed coupons
+     * Gets redeemed coupons for a user.
      */
     @Override
     public List<Coupon> getRedeemedCoupons(Long userId) {
         updateStatuses();
+
         List<Coupon> result = new ArrayList<>();
 
         for (Redemption redemption : redemptions) {
@@ -221,10 +203,7 @@ public boolean redeemCoupon(Long userId, Long couponId) {
     }
 
     /**
-     * Searches coupons by title, code, or description.
-     *
-     * @param keyword search text entered by the user
-     * @return list of matching coupons
+     * Searches coupons by keyword.
      */
     @Override
     public List<Coupon> searchCoupons(String keyword) {
@@ -234,15 +213,13 @@ public boolean redeemCoupon(Long userId, Long couponId) {
             return getAllCoupons();
         }
 
-        String lowerKeyword = keyword.toLowerCase();
+        String lower = keyword.toLowerCase();
         List<Coupon> results = new ArrayList<>();
 
         for (Coupon coupon : coupons) {
-            boolean matchesTitle = coupon.getTitle().toLowerCase().contains(lowerKeyword);
-            boolean matchesCode = coupon.getCode().toLowerCase().contains(lowerKeyword);
-            boolean matchesDescription = coupon.getDescription().toLowerCase().contains(lowerKeyword);
-
-            if (matchesTitle || matchesCode || matchesDescription) {
+            if (coupon.getTitle().toLowerCase().contains(lower)
+                    || coupon.getCode().toLowerCase().contains(lower)
+                    || coupon.getDescription().toLowerCase().contains(lower)) {
                 results.add(coupon);
             }
         }
@@ -251,7 +228,62 @@ public boolean redeemCoupon(Long userId, Long couponId) {
     }
 
     /**
-     * Resets the demo data back to the original coupons.
+     * Adds a new coupon.
+     */
+    @Override
+    public void addCoupon(Coupon coupon) {
+        Long nextId = coupons.stream()
+                .mapToLong(Coupon::getId)
+                .max()
+                .orElse(0L) + 1;
+
+        coupon.setId(nextId);
+        coupon.setUsageCount(0);
+        coupon.setStatus(CouponStatus.ACTIVE);
+
+        coupons.add(coupon);
+        updateStatuses();
+    }
+
+    /**
+     * Updates an existing coupon.
+     */
+    @Override
+    public boolean updateCoupon(Long id, Coupon updated) {
+        Coupon existing = getCouponById(id);
+
+        if (existing == null) {
+            return false;
+        }
+
+        existing.setTitle(updated.getTitle());
+        existing.setCode(updated.getCode());
+        existing.setDescription(updated.getDescription());
+        existing.setDiscountPercent(updated.getDiscountPercent());
+        existing.setExpirationDate(updated.getExpirationDate());
+        existing.setUsageLimit(updated.getUsageLimit());
+
+        updateStatuses();
+        return true;
+    }
+
+    /**
+     * Deletes a coupon.
+     */
+    @Override
+    public boolean deleteCoupon(Long id) {
+        boolean removed = coupons.removeIf(c -> c.getId().equals(id));
+
+        if (removed) {
+            savedCoupons.removeIf(s -> s.getCouponId().equals(id));
+            redemptions.removeIf(r -> r.getCouponId().equals(id));
+        }
+
+        return removed;
+    }
+
+    /**
+     * Resets demo data.
      */
     @Override
     public void resetDemoData() {
@@ -259,7 +291,7 @@ public boolean redeemCoupon(Long userId, Long couponId) {
     }
 
     /**
-     * Updates each coupon status based on expiration date and usage limit.
+     * Updates coupon statuses based on expiration and usage.
      */
     private void updateStatuses() {
         for (Coupon coupon : coupons) {
